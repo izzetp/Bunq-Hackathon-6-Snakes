@@ -153,17 +153,17 @@ export default function Slide10() {
               <div className="text-center">
                 <div className="text-2xl mb-1">🛒</div>
                 <p className="text-xs">Groceries</p>
-                <p className="text-cyan-400 text-sm font-medium">412</p>
+                <p className="text-cyan-400 text-sm font-medium">312</p>
               </div>
               <div className="text-center">
                 <div className="text-2xl mb-1">☕</div>
                 <p className="text-xs">Coffee</p>
-                <p className="text-cyan-400 text-sm font-medium">248</p>
+                <p className="text-cyan-400 text-sm font-medium">48</p>
               </div>
               <div className="text-center">
                 <div className="text-2xl mb-1">🍽️</div>
                 <p className="text-xs">Dining</p>
-                <p className="text-cyan-400 text-sm font-medium">186</p>
+                <p className="text-cyan-400 text-sm font-medium">162</p>
               </div>
             </div>
           </motion.div>
