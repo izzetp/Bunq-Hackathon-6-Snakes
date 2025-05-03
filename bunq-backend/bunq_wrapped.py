@@ -510,7 +510,7 @@ class BunqWrappedGenerator:
 
 # Example usage from outside the class
 if __name__ == "__main__":
-    API_KEY = "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"
+    API_KEY = ""
     generator = BunqWrappedGenerator(API_KEY)
 
     with open("/Users/mateivolanschi/bunq/bunq-backend/transactions.json", "r") as file:
