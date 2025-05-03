@@ -1,0 +1,48 @@
+[
+  {
+    "date": "May 16",
+    "amount": 455.0
+  },
+  {
+    "name": "Clara Martinez",
+    "amount": 5623.45
+  },
+  {
+    "name": "Matthew Palmer",
+    "amount": 4256.0
+  },
+  {
+    "amount": 4500.0,
+    "expense": "Birthday House Rent",
+    "date": "2021-07-13"
+  },
+  {
+    "songs": [
+      "Happy Birthday by Stevie Wonder",
+      "Corporate by The Cinematic Orchestra",
+      "Empty Spaces by Pink Floyd",
+      "Shopping by Azealia Banks",
+      "Blank Space by Taylor Swift"
+    ]
+  },
+  {
+    "hour": "14:00",
+    "desc": "Peak productivity or peak procrastination with a side of spending? \u23f0\ud83d\uded2"
+  },
+  {
+    "place": "Albert Heijn",
+    "nr_visits": 11,
+    "amount": 4564.41
+  },
+  {
+    "nr_purchases": 524,
+    "avg_day": 1.44
+  },
+  {
+    "desc": "Rent, Groceries, and Tech Rule Our Wallets This Year"
+  },
+  {
+    "name": "M. Smith",
+    "nr_transfers": 12
+  }
+]
