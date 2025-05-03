@@ -1,0 +1,41 @@
+Slide 1 Most expensive night:
+-date: string
+-amount: number
+- 3_most_spent: list of 3 things (strings)
+
+Slide 2 Sent most money to:
+- name: string
+- amount: number
+
+SLide 3 you got the most from: (same as slide 2 )
+
+Slide 4:
+- amount: number
+- expense: string
+- date:  string
+
+Slide 5:
+- songs: list of 5 song names, artists
+
+Slide 6:
+- hour: string
+- desc: string
+
+Slide 7:
+- place: string
+- nr_visist: number
+- amount: number
+
+Slide 8:
+- nr_purchases: number
+- avg_day: number
+- top_3: dict of 3 categories (cat1, cat2, cat3) with number
+
+Mashup:
+- nr_transfers: number
+
+
+
+
+
+
