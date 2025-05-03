@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 export default function IntroSlide({ onStart }: { onStart: () => void }) {
   const [phase, setPhase] = useState(0);
@@ -68,14 +69,20 @@ export default function IntroSlide({ onStart }: { onStart: () => void }) {
         />
       </div>
 
-      {/* Animated 💰 Emoji + glow effect */}
+      {/* Logo with animation */}
       <div className="absolute top-1/3 left-1/2 transform -translate-x-1/2 z-10">
         <motion.div
-          className="relative w-28 h-28 rounded-full bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center shadow-2xl"
+          className="relative w-40 h-40 rounded-full flex items-center justify-center shadow-2xl"
           variants={floatVariants}
           animate="animate"
         >
-          <span className="text-5xl">💰</span>
+          <Image
+            src="/images/HackathonLogo.png"
+            alt="Hackathon Logo"
+            width={160}
+            height={160}
+            className="object-contain"
+          />
 
           {/* Animated glow rings */}
           <motion.div
@@ -105,7 +112,7 @@ export default function IntroSlide({ onStart }: { onStart: () => void }) {
           animate={phase >= 1 ? "visible" : "hidden"}
           className="text-5xl sm:text-6xl font-extrabold bg-gradient-to-r from-pink-500 via-purple-400 to-blue-500 bg-clip-text text-transparent"
         >
-          Bunq Wrapped
+          Bunq Lens
         </motion.h1>
 
         <motion.p
@@ -114,7 +121,7 @@ export default function IntroSlide({ onStart }: { onStart: () => void }) {
           animate={phase >= 2 ? "visible" : "hidden"}
           className="text-2xl"
         >
-          🎉 Your 2024 in Money 🎉
+          Your 2025 in Money
         </motion.p>
 
         <motion.p
@@ -123,7 +130,7 @@ export default function IntroSlide({ onStart }: { onStart: () => void }) {
           animate={phase >= 3 ? "visible" : "hidden"}
           className="text-lg text-gray-300"
         >
-          Let’s relive the chaos.
+          Let's relive the chaos.
         </motion.p>
       </div>
 
