@@ -41,20 +41,17 @@ class BunqWrappedGenerator:
 
         return response_text
 
-    def get_year_one_line(self, transactions: json) -> str:
+    def get_year_one_line(self, transactions: list) -> dict:
         """
         Processes a list of transaction dictionaries to extract the top 100 expenses
         made by COMPANY-type users, ordered by most money spent.
 
         Args:
-            transactions_json (list): List of transaction records in JSON format.
+            transactions (list): List of transaction records in JSON format.
 
         Returns:
-            str: A quirky, hilarious slogan summarizing this year's transactions.
+            dict: A quirky, hilarious slogan summarizing this year's transactions.
         """
-        import pandas as pd
-
-        # Convert JSON to DataFrame
         df = pd.DataFrame(transactions)
 
         # Filter for COMPANY user_type
@@ -71,14 +68,24 @@ class BunqWrappedGenerator:
             "category"
         ]]
 
-        # Convert the filtered DataFrame to a string
+        # Convert to a readable string
         df_string = df_filtered.to_string(index=False)
 
-        # Call the model with the string version of the DataFrame
-        return {"desc" : self._call_model(
-            "In 10 words or fewer, create a quirky, hilarious slogan summarizing this year's transactions. Have it represent" \
-                " the most oftenly carried out expenses, and send nothing but this sentence." + df_string
-        )}
+        # Compose clean prompt
+        prompt = (
+            "Based on the following list of 100 major business expenses, summarize this year's spending in 10 words or fewer "
+            "with a quirky and hilarious slogan. Focus on the dominant themes. Do not use quotation marks or punctuation at the end.\n\n"
+            + df_string
+        )
+
+        # Call the model
+        response = self._call_model(prompt).strip()
+
+        # Sanitize response to remove stray quotes
+        slogan = re.sub(r'^[\'"]?(.*?)[\'"]?$', r'\1', response)
+
+        return {"desc": slogan}
+
 
     def get_total_nr_purchases(self, transactions: list) -> dict:
         """
@@ -425,23 +432,28 @@ class BunqWrappedGenerator:
         prompt = (
             "You are given a list of 5 massive expenses. Based on their emotional vibe, suggest 5 song titles that fit them. "
             "Return the result as a single line, with each song formatted like: Song Title by Artist. "
-            "Separate each with a comma. Do not number or bold the list.\n\n"
+            "Separate each with a comma. Do not number or bold the list. Do not use quotation marks.\n\n"
             "Expenses:\n" + "\n".join(vibe_list)
         )
 
         system_message = "You are a creative and witty music curator generating mood-based playlists."
+        raw_line = self._call_model(prompt, system_message).strip()
 
-        response_text = self._call_model(prompt, system_message)
+        def sanitize_song_titles(raw_line: str) -> list:
+            raw_items = raw_line.split(",")
+            cleaned_songs = []
+            for item in raw_items:
+                item = item.strip()
+                if "by" not in item:
+                    continue
+                item = re.sub(r'"?\s*by', ' by', item)
+                item = item.strip(' "\'')
+                cleaned_songs.append(item)
+            return cleaned_songs
 
-        # Parse response: split into list and clean each item
-        raw_line = response_text.strip()
-        songs = [re.sub(r'^[\'"]?(.*?)[\'"]?\s*$', r'\1', s.strip()) for s in raw_line.split(",") if "by" in s]
+        songs = sanitize_song_titles(raw_line)
+        return {"songs": songs[:5]}
 
-
-        return {
-            "songs": songs[:5]
-        }
-    
     def get_mashup(self, transactions: list) -> dict:
         """
         Finds the person with the most total transfers (sent or received) and returns a summary.
