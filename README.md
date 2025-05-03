@@ -56,3 +56,36 @@ npm install
 ### Configuration
 
 Create a .env file in the backend/ directory containing:
+
+SANDBOX_API_KEY=<your_bunq_sandbox_api_key>
+OPENAI_API_KEY=<your_openai_api_key>
+DATABASE_URL=sqlite:///./data.db  # or PostgreSQL URL
+
+### Usage
+Start backend API:
+
+cd backend
+uvicorn main:app --reload
+
+Start frontend:
+
+cd frontend
+npm run dev
+
+Access the application at http://localhost:3000.
+
+### API Endpoints
+POST /sandbox-user — Create a new sandbox user
+
+POST /authenticate — Perform key and session workflow
+
+GET /accounts — List user monetary accounts
+
+GET /accounts/{account_id}/balance — Retrieve an account balance
+
+POST /top-up — Top-up sandbox balance via request inquiry
+
+POST /payments — Initiate a payment
+
+### License
+This project is licensed under the MIT License.
