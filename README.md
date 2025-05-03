@@ -1,91 +1,102 @@
-# Bunq-Hackathon-6-Snakes
+### Bunq Lens
+Bunq Lens is an AI-powered application that transforms your Bunq transaction data into a personalized, shareable year-in-review. Inspired by Spotify Wrapped, it provides users with insightful summaries of their spending habits, favorite merchants, and financial trends, all presented in an engaging and visually appealing format.
 
-# bunq-wrapped
+### 🚀 Features
+Secure Bunq Integration: Connects with the Bunq sandbox API to fetch user data.
 
-`bunq-wrapped` is a full-stack web application and API service with integrated AI functionality, designed to streamline interactions with the bunq sandbox environment. It offers a graphical user interface and AI-driven insights to manage authentication, account operations, sandbox top-ups, and payment processing.
+AI-Driven Insights: Utilizes NVIDIA-powered LLaMA models to analyze spending patterns and generate personalized summaries.
 
----
+Interactive Visualizations: Presents data through dynamic charts and graphs, highlighting top spending categories, frequent merchants, and monthly trends.
 
-## Features
+Shareable Reports: Generates visually appealing summaries that users can share on social media platforms.
 
-- **Web Interface**: Responsive frontend for visualizing accounts, balances, and transactions.  
-- **AI Insights**: Generate transaction summaries, anomaly detection, and personalized recommendations using AI models.  
-- **Sandbox User Management**: Programmatically create and manage multiple sandbox profiles.  
-- **Key Pair & Session Workflow**: Automate RSA key generation, installation, device registration, and session token handling.  
-- **Account Operations**: List monetary accounts, retrieve balances, and view transaction history.  
-- **Sandbox Top-Up**: Automate balance top-up via request inquiries to the sandbox “Sugar Daddy.”  
-- **Payment Processing**: Initiate, track, and summarize single or batch payments.  
+User-Friendly Interface: Offers an intuitive web interface for users to view and interact with their financial summaries.
 
----
+### 🛠️ Technical Overview
+Frontend: Built with React for a responsive and dynamic user experience.
 
-## Architecture
+Backend: Developed using Python and Flask to handle API requests and data processing.
 
-- **Backend**: Python 3.8+ with FastAPI for API endpoints and authentication workflows.  
-- **Frontend**: Next.js for server-side rendering and interactive dashboards.  
-- **AI Integration**: Connects to OpenAI or a custom ML service for generating insights.  
+AI Integration: Incorporates LLaMA models via NVIDIA's API for natural language processing and summarization.
 
----
+Data Visualization: Employs Chart.js and D3.js for rendering interactive charts.
 
-## Getting Started
+Authentication: Implements secure OAuth2 authentication with the Bunq API.
 
-### Prerequisites
+### 📦 Installation
+Clone the Repository:
 
-- **Python 3.8 or higher**  
-- **Node.js & npm**  
-- **OpenSSL** command-line tool  
-- **bunq sandbox API access**  
-- **OpenAI API key** (if using AI features)  
+bash
+Copy
+Edit
+git clone https://github.com/izzetp/Bunq-Hackathon-6-Snakes.git
+cd Bunq-Hackathon-6-Snakes
+Set Up Virtual Environment:
 
-### Installation
+bash
+Copy
+Edit
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+Install Dependencies:
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/bunq-wrapped.git
-   cd bunq-wrapped
-
-### Install backend dependencies:
-
-cd backend
+bash
+Copy
+Edit
 pip install -r requirements.txt
+Configure Environment Variables:
 
-### Install frontend dependencies:
+Create a .env file in the root directory and add your Bunq API credentials:
 
-cd ../frontend
-npm install
+env
+Copy
+Edit
+BUNQ_API_KEY=your_bunq_api_key
+NVIDIA_API_KEY=your_nvidia_api_key
+Run the Application:
 
-### Configuration
+bash
+Copy
+Edit
+flask run
+Access the application at http://localhost:5000.
 
-Create a .env file in the backend/ directory containing:
+### 🧪 Usage
+Authenticate: Log in using your Bunq sandbox credentials.
 
-SANDBOX_API_KEY=<your_bunq_sandbox_api_key>
-OPENAI_API_KEY=<your_openai_api_key>
-DATABASE_URL=sqlite:///./data.db  # or PostgreSQL URL
+Generate Summary: Click on "Generate Wrapped" to fetch and analyze your transaction data.
 
-### Usage
-Start backend API:
+View Insights: Explore your personalized financial summary, including top spending categories, frequent merchants, and monthly trends.
 
-cd backend
-uvicorn main:app --reload
+Share: Download or share your financial summary on social media platforms.
 
-Start frontend:
+### 🎯 Hackathon Rubric Alignment
+Innovation: Combines financial data with AI to create personalized, shareable summaries, offering a novel way to engage with banking information.
 
-cd frontend
-npm run dev
+Technical Execution: Successfully integrates multiple APIs (Bunq and NVIDIA's LLaMA), handles authentication securely, and presents data through interactive visualizations.
 
-Access the application at http://localhost:3000.
+Business Value: Encourages user engagement and brand promotion through shareable content, potentially attracting new users to Bunq.
 
-### API Endpoints
-POST /sandbox-user — Create a new sandbox user
+User Experience: Provides an intuitive interface with clear insights, making financial data accessible and engaging.
 
-POST /authenticate — Perform key and session workflow
+### 📁 Project Structure
+plaintext
+Copy
+Edit
+├── app.py                 # Main Flask application
+├── templates/             # HTML templates
+├── static/
+│   ├── css/               # Stylesheets
+│   └── js/                # JavaScript files
+├── bunq_api/
+│   ├── auth.py            # Handles Bunq authentication
+│   └── transactions.py    # Fetches and processes transaction data
+├── ai/
+│   └── summarizer.py      # Interfaces with LLaMA API for summarization
+├── visualizations/
+│   └── charts.py          # Generates charts using Chart.js
+├── requirements.txt       # Python dependencies
+└── README.md              # Project documentation
 
-GET /accounts — List user monetary accounts
-
-GET /accounts/{account_id}/balance — Retrieve an account balance
-
-POST /top-up — Top-up sandbox balance via request inquiry
-
-POST /payments — Initiate a payment
-
-### License
-This project is licensed under the MIT License.
+### 📄 License
+This project is licensed under the MIT License. See the LICENSE file for details.
