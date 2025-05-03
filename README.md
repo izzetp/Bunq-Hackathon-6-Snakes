@@ -80,6 +80,7 @@ Business Value: Encourages user engagement and brand promotion through shareable
 User Experience: Provides an intuitive interface with clear insights, making financial data accessible and engaging.
 
 ### 📁 Project Structure
+'''
 plaintext
 Copy
 Edit
@@ -97,6 +98,6 @@ Edit
 │   └── charts.py          # Generates charts using Chart.js
 ├── requirements.txt       # Python dependencies
 └── README.md              # Project documentation
-
+'''
 ### 📄 License
 This project is licensed under the MIT License. See the LICENSE file for details.
