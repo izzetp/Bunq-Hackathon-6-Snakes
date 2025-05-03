@@ -85,26 +85,6 @@ npm run dev
 
 ---
 
-## 📁 Project Structure
-
-```
-.
-├── API-0-call.py                # Basic API interaction
-├── API-ElliotTucker-call.py     # Sandbox API call with Elliot’s credentials
-├── BunqWrappedGenerator.py      # Core wrapped logic
-├── main.py                      # Main entry point for data fetching + summary
-├── pay-elliot.py                # Payment script demo
-├── elliot-bal.py                # Balance check
-├── transactions_generator.py    # Dummy transaction generation
-├── transactions.json            # Sample transaction data
-├── requirements.txt             # Python dependencies
-├── README.md                    # This file
-├── .gitignore
-└── BUNQ-WRAPPED-FEATURES        # Summary of planned or implemented features
-```
-
----
-
 ## 📄 License
 
 This project is licensed under the MIT License. See the `LICENSE` file for more information.
