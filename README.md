@@ -1,6 +1,6 @@
-# 🔍 Bunq Lens
+# 🔍 bunq Lens
 
-**Bunq Lens** is an AI-powered application that transforms your Bunq transaction data into a personalized, shareable year-in-review.
+**bunq Lens** is an AI-powered application that transforms your Bunq transaction data into a personalized, shareable year-in-review.
 
 Inspired by Spotify Wrapped, it helps users gain insightful, visually appealing summaries of their spending habits, favorite merchants, and financial patterns.
 
@@ -8,7 +8,7 @@ Inspired by Spotify Wrapped, it helps users gain insightful, visually appealing 
 
 ## 🚀 Features
 
-- 🔐 **Secure Bunq Integration**  
+- 🔐 **Secure bunq Integration**  
   Connects with the Bunq sandbox API to fetch and process transaction data.
 
 - 🤖 **AI-Driven Insights**  
